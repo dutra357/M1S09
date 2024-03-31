@@ -8,14 +8,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LivroRepository extends JpaRepository<LivroEntity, Long> {
-    @Query(value = "update livro set " +
+    @Query(nativeQuery = true, value = "update livros set " +
             " titulo = :titulo," +
             " autor = :autor, " +
             " anoPublicacao = :anoPublicacao " +
-            " where id = :id",
-            nativeQuery = true
+            " where id = :id")
 
-    )
     LivroEntity update(@Param("id") Long id,
                        @Param("autor") String autor,
                        @Param("anoPublicacao") String anoPublicacao,

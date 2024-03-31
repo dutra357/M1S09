@@ -12,9 +12,9 @@ import java.util.Date;
 
 @Repository
 public interface EmprestimoRepository extends JpaRepository<EmprestimosEntity, Long> {
-    @Query(value = "update emprestimo set " +
-            " livroId = :livroId," +
-            " membroId = :membroId, " +
+    @Query(value = "update emprestimos set " +
+            " livro_id = :livroId," +
+            " membro_id = :membroId, " +
             " dataEmprestimo = :dataEmprestimo " +
             " dataDevolucao = :dataDevolucao " +
             " where id = :id",

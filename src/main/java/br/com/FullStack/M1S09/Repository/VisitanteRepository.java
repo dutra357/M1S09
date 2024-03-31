@@ -10,13 +10,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VisitanteRepository extends JpaRepository<VisitantesEntity, Long> {
 
-    @Query(value = "update visitante set " +
+    @Query(nativeQuery = true, value = "update visitantes set " +
             " nome = :nome," +
             " telefone = :telefone, " +
-            " where id = :id",
-            nativeQuery = true
-
-    )
+            " where id = :id")
     VisitantesEntity update(@Param("id") Long id,
                            @Param("nome") String titulo,
                            @Param("telefone") String autor);

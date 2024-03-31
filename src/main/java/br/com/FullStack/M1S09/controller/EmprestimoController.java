@@ -1,7 +1,7 @@
 package br.com.FullStack.M1S09.controller;
 
-import br.com.FullStack.M1S09.entity.LivroEntity;
-import br.com.FullStack.M1S09.service.LivroService;
+import br.com.FullStack.M1S09.entity.EmprestimosEntity;
+import br.com.FullStack.M1S09.service.EmprestimoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,35 +12,35 @@ import java.util.List;
 @RequestMapping("membros")
 public class EmprestimoController {
 
-    private final LivroService service;
+    private final EmprestimoService service;
 
-    public EmprestimoController(Empres service) {
+    public EmprestimoController(EmprestimoService service) {
         this.service = service;
     }
 
 
 
     @GetMapping
-    public ResponseEntity<List<LivroEntity>> get(){
+    public ResponseEntity<List<EmprestimosEntity>> get(){
         return ResponseEntity.ok().body(service.buscarTodos());
     }
     @GetMapping("{id}")
-    public ResponseEntity<LivroEntity> getId(@PathVariable Long id){
+    public ResponseEntity<EmprestimosEntity> getId(@PathVariable Long id){
         return ResponseEntity.ok().body(service.buscarPorId(id));
     }
 
 
 
     @PostMapping //retornar 201, não 200
-    public ResponseEntity<LivroEntity> post(@RequestBody LivroEntity livro){
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(livro));
+    public ResponseEntity<EmprestimosEntity> post(@RequestBody EmprestimosEntity emprestimo){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(emprestimo));
     }
 
 
 
     @PutMapping("{id}")
-    public ResponseEntity<LivroEntity> put(@PathVariable Long id, @RequestBody LivroEntity livro){
-        return ResponseEntity.ok().body(service.alterar(id, livro));
+    public ResponseEntity<EmprestimosEntity> put(@PathVariable Long id, @RequestBody EmprestimosEntity emprestimo){
+        return ResponseEntity.ok().body(service.alterar(id, emprestimo));
     }
 
     @DeleteMapping("{id}")
@@ -49,20 +49,3 @@ public class EmprestimoController {
         return ResponseEntity.noContent().build();
     }
 }
-
-
-
-
-
-
-
-/*
-
-<dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-
-springdoc.swagger-ui.use-root-path=true
- */

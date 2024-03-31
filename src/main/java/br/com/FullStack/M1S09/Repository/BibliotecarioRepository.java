@@ -9,14 +9,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BibliotecarioRepository extends JpaRepository<BibliotecarioEntity, Long> {
-    @Query(value = "update bibliotecario set " +
+    @Query(value = "update bibliotecarios set " +
             " nome = :nome," +
             " email = :email, " +
             " senha = :senha " +
             " where id = :id",
-            nativeQuery = true
-
-    )
+            nativeQuery = true)
     BibliotecarioEntity update(@Param("id") Long id,
                                @Param("nome") String nome,
                                @Param("senha") String senha,

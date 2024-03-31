@@ -9,14 +9,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MembroRepository extends JpaRepository<MembrosEntity, Long> {
-    @Query(value = "update membro set " +
+    @Query(nativeQuery = true, value = "update membros set " +
             " nome = :nome," +
             " endereco = :endereco, " +
             " telefone = :telefone " +
-            " where id = :id",
-            nativeQuery = true
-
-    )
+            " where id = :id")
     MembrosEntity update(@Param("id") Long id,
                         @Param("nome") String nome,
                         @Param("endereco") String endereco,

@@ -1,9 +1,7 @@
 package br.com.FullStack.M1S09.controller;
 
 import br.com.FullStack.M1S09.entity.BibliotecarioEntity;
-import br.com.FullStack.M1S09.entity.LivroEntity;
 import br.com.FullStack.M1S09.service.BibliotecarioService;
-import br.com.FullStack.M1S09.service.LivroService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

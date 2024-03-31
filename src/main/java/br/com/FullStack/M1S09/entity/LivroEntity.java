@@ -2,7 +2,6 @@ package br.com.FullStack.M1S09.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.io.Serializable;
 
 @Data
