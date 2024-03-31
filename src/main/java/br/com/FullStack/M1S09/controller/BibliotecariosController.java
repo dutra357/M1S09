@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("livros")
-public class LivroController {
+@RequestMapping("membros")
+public class BibliotecariosController {
 
     private final LivroService service;
 
-    public LivroController(LivroService service) {
+    public BibliotecariosController(MembrosService service) {
         this.service = service;
     }
 
