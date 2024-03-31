@@ -16,9 +16,9 @@ public class EmprestimosEntity {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
+    @OneToMany
     @Column(name = "livro_id", nullable = false)
-    private LivroEntity livro;
+    private List<LivroEntity> livro;
 
     @ManyToOne
     @Column(name = "membro_id", nullable = false)

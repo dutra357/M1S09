@@ -14,7 +14,7 @@ public class EmprestimoController {
 
     private final LivroService service;
 
-    public EmprestimoController(MembrosService service) {
+    public EmprestimoController(Empres service) {
         this.service = service;
     }
 
