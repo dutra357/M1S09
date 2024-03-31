@@ -18,8 +18,8 @@ public class LivroServiceImpl implements LivroService{
 
     @Override
     public LivroEntity criar(LivroEntity livro) {
-        entity.setId(null);
-        return repository.save(entity);
+        livro.setId(null);
+        return repository.save(livro);
     }
 
     @Override
@@ -29,19 +29,19 @@ public class LivroServiceImpl implements LivroService{
 
     @Override
     public LivroEntity buscarPorId(Long id) {
-        return repository.findBy().orElseThrow(() -> new NotFound("Livro não encontrado"));
+        return repository.findById(id).orElseThrow(() -> new NotFound("Livro não encontrado"));
     }
 
     @Override
     public LivroEntity alterar(Long id, LivroEntity livro) {
         buscarPorId(id);
-        entity.setId(null);
-        return repository.save(entity);
+        livro.setId(null);
+        return repository.save(livro);
     }
 
     @Override
     public void excluir(Long id) {
-        buscarPorId(id);
-        return repository.delete();
+        var deletado = buscarPorId(id);
+        repository.delete(deletado);
     }
 }

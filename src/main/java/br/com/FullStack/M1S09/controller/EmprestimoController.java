@@ -10,11 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("membros")
-public class BibliotecariosController {
+public class EmprestimoController {
 
     private final LivroService service;
 
-    public BibliotecariosController(MembrosService service) {
+    public EmprestimoController(MembrosService service) {
         this.service = service;
     }
 

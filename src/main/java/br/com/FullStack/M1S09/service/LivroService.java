@@ -4,7 +4,7 @@ import br.com.FullStack.M1S09.entity.LivroEntity;
 
 import java.util.List;
 
-public interface LivroService extends GenericService<LivroEntity>{
+public interface LivroService {
 
     LivroEntity criar(LivroEntity livro);
 
@@ -12,7 +12,8 @@ public interface LivroService extends GenericService<LivroEntity>{
 
     LivroEntity buscarPorId(Long id);
     LivroEntity alterar(Long id, LivroEntity livro);
-    LivroEntity excluir(Long id);
+
+    void excluir(Long id);
 
 
 }
