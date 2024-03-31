@@ -51,20 +51,3 @@ public class VisitanteController {
         return ResponseEntity.noContent().build();
     }
 }
-
-
-
-
-
-
-
-/*
-
-<dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-
-springdoc.swagger-ui.use-root-path=true
- */

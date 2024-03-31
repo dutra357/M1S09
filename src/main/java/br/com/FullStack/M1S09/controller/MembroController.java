@@ -1,7 +1,9 @@
 package br.com.FullStack.M1S09.controller;
 
 import br.com.FullStack.M1S09.entity.LivroEntity;
+import br.com.FullStack.M1S09.entity.MembrosEntity;
 import br.com.FullStack.M1S09.service.LivroService;
+import br.com.FullStack.M1S09.service.MembroService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,35 +14,33 @@ import java.util.List;
 @RequestMapping("membros")
 public class MembroController {
 
-    private final LivroService service;
-
-    public MembroController(MembrosService service) {
+    private final MembroService service;
+    public MembroController(MembroService service) {
         this.service = service;
     }
 
 
-
     @GetMapping
-    public ResponseEntity<List<LivroEntity>> get(){
+    public ResponseEntity<List<MembrosEntity>> get(){
         return ResponseEntity.ok().body(service.buscarTodos());
     }
     @GetMapping("{id}")
-    public ResponseEntity<LivroEntity> getId(@PathVariable Long id){
+    public ResponseEntity<MembrosEntity> getId(@PathVariable Long id){
         return ResponseEntity.ok().body(service.buscarPorId(id));
     }
 
 
 
     @PostMapping //retornar 201, não 200
-    public ResponseEntity<LivroEntity> post(@RequestBody LivroEntity livro){
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(livro));
+    public ResponseEntity<MembrosEntity> post(@RequestBody MembrosEntity membro){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(membro));
     }
 
 
 
     @PutMapping("{id}")
-    public ResponseEntity<LivroEntity> put(@PathVariable Long id, @RequestBody LivroEntity livro){
-        return ResponseEntity.ok().body(service.alterar(id, livro));
+    public ResponseEntity<MembrosEntity> put(@PathVariable Long id, @RequestBody MembrosEntity membro){
+        return ResponseEntity.ok().body(service.alterar(id, membro));
     }
 
     @DeleteMapping("{id}")
@@ -49,20 +49,3 @@ public class MembroController {
         return ResponseEntity.noContent().build();
     }
 }
-
-
-
-
-
-
-
-/*
-
-<dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-
-springdoc.swagger-ui.use-root-path=true
- */
